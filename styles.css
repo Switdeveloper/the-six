@@ -386,3 +386,220 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .cart-item button{color:hsl(var(--destructive));font-size:1.1rem}
 .cart-empty{text-align:center;padding:2rem 0;color:hsl(var(--muted-foreground))}
 .cart-footer{padding:1.5rem;border-top:1px solid hsl(var(--border));display:flex;flex-direction:column;gap:.75rem}
+
+/* Contact Page Styles */
+.contact-hero {
+  padding: 140px 0 60px;
+  text-align: center;
+  position: relative;
+}
+.contact-hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.contact-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 1rem 0 1.5rem;
+  line-height: 1.1;
+}
+.contact-hero .lead {
+  font-size: 1.2rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.7;
+}
+.contact-section {
+  padding: 40px 0 100px;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+.contact-info-header {
+  margin-bottom: 2.5rem;
+}
+.contact-info-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+.contact-info-header p {
+  color: hsl(var(--muted-foreground));
+  line-height: 1.6;
+}
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.contact-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 1rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.contact-card:hover {
+  border-color: hsl(var(--primary));
+  transform: translateX(8px);
+}
+.contact-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--primary)/0.1);
+  border-radius: 0.75rem;
+  color: hsl(var(--primary));
+  flex-shrink: 0;
+}
+.contact-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.contact-card p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.contact-card a {
+  color: hsl(var(--primary));
+  transition: color 0.2s;
+}
+.contact-card a:hover {
+  color: hsl(var(--primary-glow));
+}
+.contact-socials h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+.social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  transition: all 0.3s;
+}
+.social-link:hover {
+  background: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  transform: translateY(-3px);
+}
+.contact-form-wrapper {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  position: sticky;
+  top: 100px;
+}
+.form-header {
+  margin-bottom: 2rem;
+}
+.form-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.form-header p {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.95rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.form-group {
+  margin-bottom: 1.25rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: hsl(var(--foreground));
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary)/0.15);
+}
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+.form-footer {
+  margin-top: 1.5rem;
+}
+.form-footer .btn {
+  width: 100%;
+  justify-content: center;
+}
+.form-note {
+  font-size: 0.8rem;
+  color: hsl(var(--muted-foreground));
+  text-align: center;
+  margin-top: 1rem;
+}
+.nav-links a.active {
+  color: hsl(var(--primary));
+}
+.nav-links a.active::after {
+  width: 100%;
+}
+@media(max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .contact-form-wrapper {
+    position: static;
+  }
+}
+@media(max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+}
