@@ -27,14 +27,28 @@
   const scrollTop=document.getElementById('scrollTop');
   window.addEventListener('scroll',()=>{
     nav.classList.toggle('scrolled',window.scrollY>20);
-    scrollTop.classList.toggle('show',window.scrollY>500);
+    if(scrollTop) scrollTop.classList.toggle('show',window.scrollY>500);
   });
-  scrollTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  if(scrollTop) scrollTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
   // Mobile menu
   const mm=document.getElementById('mobileMenu');
-  document.getElementById('navToggle').addEventListener('click',()=>mm.classList.toggle('open'));
-  function closeMobile(){mm.classList.remove('open')}
+  const navToggle=document.getElementById('navToggle');
+  
+  navToggle.addEventListener('click',()=>{
+    mm.classList.toggle('open');
+    navToggle.classList.toggle('active');
+  });
+  
+  // Close mobile menu when clicking a link
+  mm.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('click',()=>{
+      mm.classList.remove('open');
+      navToggle.classList.remove('active');
+    });
+  });
+  
+  function closeMobile(){mm.classList.remove('open');navToggle.classList.remove('active');}
 
   // Reveal observer
   const io=new IntersectionObserver(entries=>{
