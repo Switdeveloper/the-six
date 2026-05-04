@@ -334,20 +334,31 @@
   const chatWindow=document.getElementById('chatWindow');
   const chatFab=document.getElementById('chatFab');
   const chatMsgs=document.getElementById('chatMessages');
+  const WEBHOOK_URL='https://n8n-pzynllvf.us-west-1.clawcloudrun.com/webhook/ced5d0d8-1d54-4723-b33e-5003fb6d68a9';
   function pushMsg(role,text){
     const m=document.createElement('div');
     m.className='chat-msg '+role;
     m.textContent=text;
     chatMsgs.appendChild(m);chatMsgs.scrollTop=chatMsgs.scrollHeight;
   }
+  function showTyping(){
+    const m=document.createElement('div');m.className='chat-msg bot typing';m.textContent='Thinking...';
+    chatMsgs.appendChild(m);chatMsgs.scrollTop=chatMsgs.scrollHeight;return m;
+  }
   pushMsg('bot','Hi there! 👋 How can we help you automate your business today?');
   chatFab.addEventListener('click',()=>{chatWindow.classList.add('open');chatFab.style.display='none';});
   document.getElementById('chatClose').addEventListener('click',()=>{chatWindow.classList.remove('open');chatFab.style.display='';});
-  document.getElementById('chatForm').addEventListener('submit',e=>{
+  document.getElementById('chatForm').addEventListener('submit',async e=>{
     e.preventDefault();
     const inp=document.getElementById('chatInput');
     const v=inp.value.trim();if(!v)return;
     pushMsg('user',v);inp.value='';
-    setTimeout(()=>pushMsg('bot','Thanks for reaching out! One of our AI architects will get back to you shortly. In the meantime, feel free to explore our workflow solutions above.'),700);
+    const typing=showTyping();
+    try{
+      const res=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:v})});
+      typing.remove();
+      if(res.ok){const data=await res.json();const reply=data.reply||data.message||data.text||JSON.stringify(data);pushMsg('bot',reply);}
+      else{const err=await res.text();pushMsg('bot','Error: '+err);}
+    }catch(err){typing.remove();pushMsg('bot','Connection error: '+err.message);}
   });
 })();
