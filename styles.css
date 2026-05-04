@@ -117,7 +117,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,hsl(var(--background)/.4) 0%,hsl(var(--background)/.8) 60%,hsl(var(--background)) 100%)}
 .hero-content{position:relative;z-index:2;max-width:64rem;text-align:center}
 .hero-headline{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;margin-bottom:3rem}
-.hero-label{font-weight:300;letter-spacing:.02em;color:hsl(var(--muted-foreground))}
+.hero-label{font-family:Georgia,serif;font-weight:400;letter-spacing:.01em;color:hsl(var(--muted-foreground));font-style:italic}
 .hero-sub{display:block;font-size:clamp(1rem,1.6vw,1.25rem);font-weight:400;color:hsl(var(--muted-foreground));margin-top:1rem;font-family:ui-monospace,monospace}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:5rem}
 
